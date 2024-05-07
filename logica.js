@@ -1,14 +1,3 @@
-// Solicitar al usuario 3 números y guardarlos en variables
-var numero1 = prompt("Ingrese el primer número:");
-var numero2 = prompt("Ingrese el segundo número:");
-var numero3 = prompt("Ingrese el tercer número:");
-
-// Convertir los números ingresados a tipo numérico
-numero1 = parseFloat(numero1);
-numero2 = parseFloat(numero2);
-numero3 = parseFloat(numero3);
-
-// Función para ordenar los números de mayor a menor
 function ordenarMayorMenor(a, b, c) {
     var numeros = [a, b, c];
     numeros.sort(function(x, y) {
@@ -17,7 +6,6 @@ function ordenarMayorMenor(a, b, c) {
     return numeros;
 }
 
-// Función para ordenar los números de menor a mayor
 function ordenarMenorMayor(a, b, c) {
     var numeros = [a, b, c];
     numeros.sort(function(x, y) {
@@ -26,7 +14,6 @@ function ordenarMenorMayor(a, b, c) {
     return numeros;
 }
 
-// Función para identificar si los números son iguales
 function sonIguales(a, b, c) {
     if (a === b && b === c) {
         return true;
@@ -35,20 +22,29 @@ function sonIguales(a, b, c) {
     }
 }
 
-// Mostrar los números ingresados
-console.log("Números ingresados: " + numero1 + ", " + numero2 + ", " + numero3);
+function calcular() {
+    var numero1 = parseFloat(document.getElementById("numero1").value);
+    var numero2 = parseFloat(document.getElementById("numero2").value);
+    var numero3 = parseFloat(document.getElementById("numero3").value);
 
-// Ordenar y mostrar los números de mayor a menor
-var ordenadosMayorMenor = ordenarMayorMenor(numero1, numero2, numero3);
-console.log("Ordenados de mayor a menor: " + ordenadosMayorMenor.join(", "));
+    var resultado = document.getElementById("resultado");
 
-// Ordenar y mostrar los números de menor a mayor
-var ordenadosMenorMayor = ordenarMenorMayor(numero1, numero2, numero3);
-console.log("Ordenados de menor a mayor: " + ordenadosMenorMayor.join(", "));
+    // Mostrar los números ingresados
+    resultado.innerHTML = "Números ingresados: " + numero1 + ", " + numero2 + ", " + numero3 + "<br>";
 
-// Verificar si los números son iguales e imprimir un mensaje
-if (sonIguales(numero1, numero2, numero3)) {
-    console.log("Los números son iguales.");
-} else {
-    console.log("Los números no son iguales.");
+    // Ordenar y mostrar los números de mayor a menor
+    var ordenadosMayorMenor = ordenarMayorMenor(numero1, numero2, numero3);
+    resultado.innerHTML += "Ordenados de mayor a menor: " + ordenadosMayorMenor.join(", ") + "<br>";
+
+    // Ordenar y mostrar los números de menor a mayor
+    var ordenadosMenorMayor = ordenarMenorMayor(numero1, numero2, numero3);
+    resultado.innerHTML += "Ordenados de menor a mayor: " + ordenadosMenorMayor.join(", ") + "<br>";
+
+    // Verificar si los números son iguales e imprimir un mensaje
+    if (sonIguales(numero1, numero2, numero3)) {
+        resultado.innerHTML += "Los números son iguales.";
+    } else {
+        resultado.innerHTML += "Los números no son iguales.";
+    }
 }
+
